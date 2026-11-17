@@ -1,0 +1,31 @@
+repos:
+  - repo: https://github.com/astral-sh/ruff-pre-commit
+    rev: v0.17.1
+    hooks:
+      - id: ruff-check
+        args: [--fix]
+        files: ^(src/mtah|scripts|tests)/
+      - id: ruff-format
+        files: ^(src/mtah|scripts|tests)/
+  - repo: https://github.com/kynan/nbstripout
+    rev: 0.9.1
+    hooks:
+      - id: nbstripout
+        exclude: ^starter/
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v6.0.0
+    hooks:
+      - id: check-added-large-files
+        args: [--maxkb=2000]
+  - repo: local
+    hooks:
+      - id: no-match-data
+        name: block data and outputs
+        entry: blocked paths, data must never be committed
+        language: fail
+        files: ^(data/(?!README\.md$)|outputs/|cache/|runs/)|\.(parquet|npz|mp4)$
+      - id: no-starter-notebook-changes
+        name: block edits to official starter notebooks
+        entry: copy starter notebooks into notebooks/ before running them
+        language: fail
+        files: ^starter/.*\.ipynb$

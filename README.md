@@ -1,3 +1,20 @@
+> **Our submission.** This repository is a team's entry, built on the organisers' starter
+> repository (their documents below are unchanged). The system, its training data and its
+> reproduction are described in **[docs/technical-document.md](docs/technical-document.md)**;
+> every tunable value and its external source is listed in
+> [docs/tunable-values.md](docs/tunable-values.md). To regenerate the submission:
+>
+> ```bash
+> uv sync --locked
+> # the organisers' bundle in ./data, or set MTAH_DATA_DIR (PowerShell: $env:MTAH_DATA_DIR = "...")
+> uv run python scripts/make_submission.py --out <team_name>.csv
+> uv run python evaluation/validate_submission.py <team_name>.csv
+> ```
+>
+> Our code is in `src/mtah/` and `scripts/`, its tests (synthetic data only) in `tests/`. Our
+> code and documents (`src/`, `scripts/`, `tests/`, `docs/`) are released under the MIT licence,
+> copyright (c) 2026 the team's authors; the organisers' files keep their own licence (LICENSE).
+
 # More than a Hack 2027 — Phase 1: Ball Possession
 
 **Organised by [Metrica Sports](https://metrica-sports.com), [FC Barcelona](https://www.fcbarcelona.com)

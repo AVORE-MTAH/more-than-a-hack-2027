@@ -62,3 +62,28 @@ __pycache__/
 venv/
 env/
 .DS_Store
+
+
+# Derived data and outputs: never commit
+outputs/
+cache/
+runs/
+clips/
+*.parquet
+*.npz
+*.npy
+*.pkl
+*.avi
+*.gif
+
+# Python and tooling
+.ipynb_checkpoints/
+.pytest_cache/
+.ruff_cache/
+
+# Local settings and secrets
+.env
+.claude/settings.local.json
+
+# external datasets and logs written by the reports (never committed)
+external/

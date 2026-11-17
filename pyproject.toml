@@ -1,0 +1,31 @@
+[project]
+name = "mtah"
+version = "0.1.0"
+description = "More Than a Hack 2027: possession labelling from Metrica's automatic tracking data"
+authors = [
+    { name = "marc239", email = "mlm142@alu.ua.es" }
+]
+requires-python = ">=3.11"
+dependencies = [
+    "kloppy==3.18.0",
+    "numpy>=2.4.6",
+    "pandas>=3.0.6",
+    "scipy>=1.17.1",
+]
+
+[build-system]
+requires = ["uv_build>=0.13.2,<0.14.0"]
+build-backend = "uv_build"
+
+[dependency-groups]
+dev = [
+    "nbstripout>=0.9.1",
+    "pre-commit>=4.7.0",
+    "pytest>=9.1.1",
+    "ruff>=0.17.1",
+]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+# The repo root, so tests can import the organisers' games.py.
+pythonpath = ["."]
